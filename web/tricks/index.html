@@ -1,0 +1,88 @@
+<html>
+<head>
+  <title>RSMerch</title>
+  <link id="favicon" rel="shortcut icon" type="image/png" href="../favicon.png" />
+  <!-- JQuery -->
+  <script type="text/javascript" src="../jquery.js"></script>
+
+  <script src="../global.js"></script>
+  <link rel="stylesheet" href="../global.css">
+
+
+  <!-- Custom js -->
+  <script type="text/javascript" src="script.js"></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" type = "text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+
+
+  <script src="../sorttable.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/numbro/1.9.3/numbro.min.js"></script>
+
+</head>
+
+<body>
+  <div class="content">
+    <h2>Crushed items <button onclick="toggleCrush()">H</button></h2>
+    <table id="crushTable" border="2" class="sortable table table-hover">
+      <thead class="thead-default">
+        <th>Item</th>
+        <th>Name</th>
+        <th class="sorttable_numeric unselectable">Minimum profit</th>
+        <th class="sorttable_numeric unselectable">Maximum profit</th>
+        <th>Buy price</th>
+        <th>Sell price</th>
+        <th>Quantity</th>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </br>
+    <h2>Zulrah items <button onclick="toggleZulrah()">H</button></h2>
+    <table id="zulrahTable" border="2" class="sortable table table-hover">
+      <thead class="thead-default">
+        <th>Item</th>
+        <th>Name</th>
+        <th class="sorttable_numeric unselectable">Minimum profit</th>
+        <th class="sorttable_numeric unselectable">Maximum profit</th>
+        <th>Buy price</th>
+        <th>Sell price</th>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </br>
+    <h2>Zenyte jewellery <button onclick="toggleZenyte()">H</button></h2>
+    <table id="zenyteTable" border="2" class="sortable table table-hover">
+      <thead class="thead-default">
+        <th>Item</th>
+        <th>Name</th>
+        <th class="sorttable_numeric unselectable">Minimum profit</th>
+        <th class="sorttable_numeric unselectable">Maximum profit</th>
+        <th>Buy price</th>
+        <th>Sell price</th>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </br>
+    <h2>Potions <button onclick="togglePotion()">H</button></h2>
+    <table id="potionTable" border="2" class="sortable table table-hover">
+      <thead class="thead-default">
+        <th>Item</th>
+        <th>Name</th>
+        <th class="sorttable_numeric unselectable">Minimum profit</th>
+        <th class="sorttable_numeric unselectable">Maximum profit</th>
+        <th>Buy price</th>
+        <th>Sell price</th>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+
+    <h1>todo</h1>
+    <p>salts, making teleports</p>
+    <p>fletching dragon bolts</p>
+
+  </div>
+</body>
+
+</html>
