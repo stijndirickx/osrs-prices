@@ -4,7 +4,6 @@
 
 ## Web
 - Install chrome webserver 200 + link it to the files.
-- Install Moesif Origin & CORS Changer + switch it on.
 
 ## Notebook
 - Install anaconda.

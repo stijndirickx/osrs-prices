@@ -29,7 +29,7 @@ function getAllItems(){
   var items = []; //id, name, link, img, high, low, diff, q(uantity)
   $.ajax({
     type: 'GET',
-    url: 'https://rsbuddy.com/exchange/summary.json',
+    url: 'https://cors-anywhere.herokuapp.com/https://rsbuddy.com/exchange/summary.json',
     success: function(json){
       for(i = 0; i < 30000; i++){
         if(json[i]){
