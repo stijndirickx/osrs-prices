@@ -39,7 +39,7 @@ function fillTable(){
     $('#flipTable').append(htmlTable);
     $('#count').append(count);
     toggleTable();
-  }, 700);
+  }, 1500);
 }
 
 function grabPrice(element){
