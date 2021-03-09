@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <link rel="stylesheet" type = "text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    <script src="../sorttable.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numbro/1.9.3/numbro.min.js"></script>
+  </head>
+
+  <body>
+    <div class="content">
+      <table id="flipTable" border="2" class="sortable table table-hover">
+        <tr>
+          <th></th>
+          <th>Item Name</th>
+          <th class="sorttable_numeric unselectable">High</th>
+          <th class="sorttable_numeric unselectable">Low</th>
+          <th class="sorttable_numeric unselectable">Diff</th>
+          <th class="sorttable_numeric unselectable">Margin</th>
+          <th>Rising?</th>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
+
+<script type="text/javascript">
+
+
+  $(document).ready(function (){
+    
+    //inits
+    var items = [];
+    var htmlTable = "";
+    var idMapping = [];
+
+
+    $.ajax({
+      type: 'GET',
+      url: './idMapping.json',
+      success: function(json){
+
+        //Map the Ids
+        for(i = 0; i < 30000; i++){
+          if(json[i]){
+            var idMap = {id: i, name: json[i].name};
+            idMapping.push(idMap);
+          }
+        }
+
+        //Get Latest
+        $.ajax({
+          type: 'GET',
+          url: 'https://prices.runescape.wiki/osrs/latest',
+          success: function(json){
+            for(i = 0; i < 30000; i++){
+              if(json[i]){
+              
+                if(json[i].low > 3000000 && json[i].high > 0){
+
+
+                  //given parameters
+                  var id = i;
+                  var high = json[i].high;
+                  var low = json[i].low;
+                  var highTime = json[i].highTime;
+                  var lowTime = json[i].lowTime;
+
+
+                  //custom parameters
+                  var name = "";
+                  idMapping.forEach(function(idMap){
+                    if(idMap.id == id){
+                      name = idMap.name;
+                    }
+                  })
+                  var diff = high - low;
+                  var img = 'https://rsbuddy.com/items/'+ i +'.png';
+                  var margin = (diff == high) ? 0: diff / high;
+                  var trend = highTime > lowTime;
+
+                  var item = {id:id, name:name, high:high, low:low, img:img, diff:diff, margin:margin, trend:trend};
+                  items.push(item);
+                }
+              }
+            }
+                
+            items.forEach(function(item){
+
+              htmlTable += "<tr>"
+                        + "<td><img src='" + item.img + "'></td>"
+                        + "<td>" + item.name + "</td>"
+                        + "<td>" + numbro(item.high).format('0,0') + "</td>"
+                        + "<td>" + numbro(item.low).format('0,0') + "</td>"
+                        + "<td>" + numbro(item.diff).format('0,0') + "</td>"
+                        + "<td>" + numbro(item.margin).format('0.00%') + "</td>"
+                        + "<td>" + item.trend + "</td>"
+                        + "</tr>";
+            });
+            $('#flipTable').append(htmlTable);
+          }
+        });
+      }
+    });
+  });
+</script>

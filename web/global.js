@@ -26,10 +26,12 @@ function getItem(name){
 }
 
 function getAllItems(){
+  var ts = new Date().getTime() - 63600;
+  console.log(ts);
   var items = []; //id, name, link, img, high, low, diff, q(uantity)
   $.ajax({
     type: 'GET',
-    url: 'https://cors-anywhere.herokuapp.com/https://rsbuddy.com/exchange/summary.json',
+    url: 'https://cors-anywhere.herokuapp.com/https://rsbuddy.com/exchange/summary.json?ts='+ ts,
     success: function(json){
       for(i = 0; i < 30000; i++){
         if(json[i]){
@@ -45,6 +47,7 @@ function getAllItems(){
           items.push(item);
         }
       }
+      console.log(items)
     }
   });
   return items;

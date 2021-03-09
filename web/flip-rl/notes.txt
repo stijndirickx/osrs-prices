@@ -1,0 +1,12 @@
+notes
+
+API Docs: https://oldschool.runescape.wiki/w/RuneScape:Real-time_Prices
+
+
+Latest All: 				https://prices.runescape.wiki/osrs/latest
+Latest Specified: 			https://prices.runescape.wiki/osrs/latest?id=4151%7C2  //Useful for preset itemsets
+Last 5 mins: 				https://prices.runescape.wiki/osrs/5m?id=4151
+Last 1 hour: 				https://prices.runescape.wiki/osrs/1h?id=4151
+
+Images:						https://rsbuddy.com/items/4151.png
+Names:						https://rsbuddy.com/exchange/names.json
